@@ -1,0 +1,19 @@
+[
+  {"model": "core.especialidad", "pk": 2, "fields": {"nombre": "Cardiología", "descripcion": "Especialidad en enfermedades del corazón y sistema cardiovascular"}},
+  {"model": "core.especialidad", "pk": 3, "fields": {"nombre": "Pediatría", "descripcion": "Atención médica especializada para niños y adolescentes"}},
+  {"model": "core.especialidad", "pk": 4, "fields": {"nombre": "Ginecología", "descripcion": "Salud reproductiva y ginecológica de la mujer"}},
+  {"model": "core.medico", "pk": 1, "fields": {"nombre": "Ana", "apellido": "González", "rut": "12.345.678-9", "correo": "ana.gonzalez@saludvital.cl", "telefono": "+56 9 8765 4321", "activo": true, "especialidad": 2}},
+  {"model": "core.medico", "pk": 2, "fields": {"nombre": "Carlos", "apellido": "Rodríguez", "rut": "11.222.333-4", "correo": "carlos.rodriguez@saludvital.cl", "telefono": "+56 9 7654 3210", "activo": true, "especialidad": 1}},
+  {"model": "core.medico", "pk": 3, "fields": {"nombre": "María", "apellido": "Silva", "rut": "13.456.789-0", "correo": "maria.silva@saludvital.cl", "telefono": "+56 9 6543 2109", "activo": true, "especialidad": 3}},
+  {"model": "core.paciente", "pk": 1, "fields": {"rut": "15.678.901-2", "nombre": "Juan", "apellido": "Pérez", "fecha_nacimiento": "1985-05-10", "tipo_sangre": "A+", "correo": "juan.perez@email.com", "telefono": "+56 9 5432 1098", "direccion": "Av. Libertador 123, Santiago", "activo": true}},
+  {"model": "core.paciente", "pk": 2, "fields": {"rut": "16.789.012-3", "nombre": "Carmen", "apellido": "López", "fecha_nacimiento": "1992-08-15", "tipo_sangre": "O+", "correo": "carmen.lopez@email.com", "telefono": "+56 9 4321 0987", "direccion": "Calle Providencia 456, Santiago", "activo": true}},
+  {"model": "core.paciente", "pk": 3, "fields": {"rut": "17.890.123-4", "nombre": "Roberto", "apellido": "Martínez", "fecha_nacimiento": "1978-12-03", "tipo_sangre": "B+", "correo": "roberto.martinez@email.com", "telefono": "+56 9 3210 9876", "direccion": "Las Condes 789, Santiago", "activo": true}},
+  {"model": "core.consultamedica", "pk": 1, "fields": {"paciente": 1, "medico": 1, "fecha_consulta": "2025-01-15T10:00:00Z", "motivo": "Dolor en el pecho y dificultad para respirar", "diagnostico": "Angina de pecho leve, requiere seguimiento", "estado": "ATND"}},
+  {"model": "core.consultamedica", "pk": 2, "fields": {"paciente": 2, "medico": 3, "fecha_consulta": "2025-01-16T14:30:00Z", "motivo": "Control pediátrico de rutina", "diagnostico": "Niño sano, crecimiento normal", "estado": "ATND"}},
+  {"model": "core.tratamiento", "pk": 1, "fields": {"consulta": 1, "descripcion": "Reposo relativo y medicación para el corazón", "duracion_dias": 30, "observaciones": "Evitar esfuerzos físicos intensos"}},
+  {"model": "core.tratamiento", "pk": 2, "fields": {"consulta": 2, "descripcion": "Continuar con alimentación balanceada y ejercicio", "duracion_dias": 90, "observaciones": "Control en 3 meses"}},
+  {"model": "core.recetamedica", "pk": 1, "fields": {"tratamiento": 1, "medicamento": 1, "dosis": "500mg", "frecuencia": "Cada 8 horas", "duracion": "30 días"}},
+  {"model": "core.historiaclinica", "pk": 1, "fields": {"paciente": 1, "resumen": "Paciente con antecedentes de hipertensión arterial y diabetes tipo 2. Control regular de presión arterial y glicemia.", "creada": "2025-01-15T10:05:00Z"}},
+  {"model": "core.historiaclinica", "pk": 2, "fields": {"paciente": 2, "resumen": "Niña de 8 años, desarrollo normal, sin antecedentes patológicos relevantes. Vacunas al día.", "creada": "2025-01-16T14:35:00Z"}}
+]
+

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Borrar consulta{% endblock %}
+{% block content %}
+<p>¿Seguro que deseas borrar esta consulta?</p>
+<form method="post">{% csrf_token %}
+  <button type="submit">Confirmar</button>
+</form>
+{% endblock %}
+
+

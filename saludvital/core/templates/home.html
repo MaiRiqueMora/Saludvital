@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Salud Vital{% endblock %}
+{% block content %}
+  <!-- Navegación principal -->
+  <h3>Gestión del Sistema</h3>
+  <section class="grid">
+    <a class="card" href="/especialidades/">
+      <div class="card-icon">🏥</div>
+      <div class="card-title">Especialidades</div>
+      <div class="card-desc">Gestionar especialidades médicas</div>
+    </a>
+    <a class="card" href="/pacientes/">
+      <div class="card-icon">👥</div>
+      <div class="card-title">Pacientes</div>
+      <div class="card-desc">Registro y gestión de pacientes</div>
+    </a>
+    <a class="card" href="/medicos/">
+      <div class="card-icon">👨‍⚕️</div>
+      <div class="card-title">Médicos</div>
+      <div class="card-desc">Personal médico y especialidades</div>
+    </a>
+    <a class="card" href="/consultas/">
+      <div class="card-icon">📋</div>
+      <div class="card-title">Consultas</div>
+      <div class="card-desc">Registro de consultas médicas</div>
+    </a>
+    <a class="card" href="/tratamientos/">
+      <div class="card-icon">💊</div>
+      <div class="card-title">Tratamientos</div>
+      <div class="card-desc">Tratamientos prescritos</div>
+    </a>
+    <a class="card" href="/recetas/">
+      <div class="card-icon">📝</div>
+      <div class="card-title">Recetas</div>
+      <div class="card-desc">Recetas médicas</div>
+    </a>
+    <a class="card" href="/laboratorios/">
+      <div class="card-icon">🧪</div>
+      <div class="card-title">Laboratorios</div>
+      <div class="card-desc">Laboratorios farmacéuticos</div>
+    </a>
+    <a class="card" href="/medicamentos/">
+      <div class="card-icon">💉</div>
+      <div class="card-title">Medicamentos</div>
+      <div class="card-desc">Inventario de medicamentos</div>
+    </a>
+    <a class="card" href="/historias/">
+      <div class="card-icon">📚</div>
+      <div class="card-title">Historias Clínicas</div>
+      <div class="card-desc">Historial médico de pacientes</div>
+    </a>
+  </section>
+</div>
+{% endblock %}
+

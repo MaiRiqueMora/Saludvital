@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Laboratorios{% endblock %}
+{% block content %}
+<a href="{% url 'laboratorio_create' %}">Nuevo laboratorio</a>
+<form method="get" style="margin: .5rem 0; display:flex; gap:.5rem; align-items:center;">
+  <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Buscar..." />
+  <button type="submit">Filtrar</button>
+  <a href="?">Limpiar</a>
+  </form>
+<table>
+  <thead><tr><th>ID</th><th>Nombre</th><th>Teléfono</th><th>Acciones</th></tr></thead>
+  <tbody>
+    {% for l in object_list %}
+    <tr>
+      <td>{{ l.id }}</td>
+      <td>{{ l.nombre }}</td>
+      <td>{{ l.telefono }}</td>
+      <td>
+        <a href="{% url 'laboratorio_update' l.id %}">Editar</a>
+        <a href="{% url 'laboratorio_delete' l.id %}">Borrar</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="4">Sin registros</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% if is_paginated %}
+<div class="pagination">
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">« Anterior</a>
+  {% endif %}
+  <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Siguiente »</a>
+  {% endif %}
+  </div>
+{% endif %}
+{% endblock %}
+
+

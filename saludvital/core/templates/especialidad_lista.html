@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Especialidades{% endblock %}
+{% block content %}
+<a href="{% url 'especialidad_create' %}">Nueva especialidad</a>
+<form method="get" style="margin: .5rem 0; display:flex; gap:.5rem; align-items:center;">
+  <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Buscar..." />
+  <button type="submit">Filtrar</button>
+  <a href="?">Limpiar</a>
+  </form>
+<table>
+  <thead><tr><th>ID</th><th>Nombre</th><th>Acciones</th></tr></thead>
+  <tbody>
+    {% for e in object_list %}
+    <tr>
+      <td>{{ e.id }}</td>
+      <td>{{ e.nombre }}</td>
+      <td>
+        <a href="{% url 'especialidad_update' e.id %}">Editar</a>
+        <a href="{% url 'especialidad_delete' e.id %}">Borrar</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3">Sin registros</td></tr>
+    {% endfor %}
+  </tbody>
+  </table>
+  {% if is_paginated %}
+  <div class="pagination">
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}">« Anterior</a>
+    {% endif %}
+    <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}">Siguiente »</a>
+    {% endif %}
+  </div>
+  {% endif %}
+{% endblock %}
+

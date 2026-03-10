@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Historias Clínicas{% endblock %}
+{% block content %}
+<a href="{% url 'historia_create' %}">Nueva historia</a>
+<form method="get" style="margin: .5rem 0; display:flex; gap:.5rem; align-items:center;">
+  <select name="paciente">
+    <option value="">Paciente (todos)</option>
+    {% for p in pacientes %}
+      <option value="{{ p.id }}" {% if f_paciente == p.id|stringformat:'s' %}selected{% endif %}>{{ p }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit">Filtrar</button>
+  <a href="?">Limpiar</a>
+  </form>
+<table>
+  <thead><tr><th>ID</th><th>Paciente</th><th>Creada</th><th>Acciones</th></tr></thead>
+  <tbody>
+    {% for h in object_list %}
+    <tr>
+      <td>{{ h.id }}</td>
+      <td>{{ h.paciente }}</td>
+      <td>{{ h.creada }}</td>
+      <td>
+        <a href="{% url 'historia_update' h.id %}">Editar</a>
+        <a href="{% url 'historia_delete' h.id %}">Borrar</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="4">Sin registros</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% if is_paginated %}
+<div class="pagination">
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">« Anterior</a>
+  {% endif %}
+  <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Siguiente »</a>
+  {% endif %}
+  </div>
+{% endif %}
+{% endblock %}
+
+

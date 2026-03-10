@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Borrar receta{% endblock %}
+{% block content %}
+<p>¿Seguro que deseas borrar esta receta?</p>
+<form method="post">{% csrf_token %}
+  <button type="submit">Confirmar</button>
+</form>
+{% endblock %}
+
+

@@ -1,0 +1,77 @@
+[
+  {
+    "model": "core.especialidad",
+    "pk": 1,
+    "fields": {
+      "nombre": "Medicina General",
+      "descripcion": "Atención médica integral y prevención de enfermedades"
+    }
+  },
+  {
+    "model": "core.laboratorio",
+    "pk": 1,
+    "fields": {
+      "nombre": "Laboratorio Central Santiago",
+      "direccion": "Av. Providencia 1234, Santiago",
+      "telefono": "+56 2 2345 6789"
+    }
+  },
+  {
+    "model": "core.laboratorio",
+    "pk": 2,
+    "fields": {
+      "nombre": "LabFarma Chile",
+      "direccion": "Las Condes 567, Santiago",
+      "telefono": "+56 2 3456 7890"
+    }
+  },
+  {
+    "model": "core.laboratorio",
+    "pk": 3,
+    "fields": {
+      "nombre": "BioMed Solutions",
+      "direccion": "Ñuñoa 890, Santiago",
+      "telefono": "+56 2 4567 8901"
+    }
+  },
+  {
+    "model": "core.medicamento",
+    "pk": 1,
+    "fields": {
+      "nombre": "Paracetamol 500mg",
+      "laboratorio": 1,
+      "stock": 150,
+      "precio_unitario": "990.00"
+    }
+  },
+  {
+    "model": "core.medicamento",
+    "pk": 2,
+    "fields": {
+      "nombre": "Ibuprofeno 400mg",
+      "laboratorio": 2,
+      "stock": 200,
+      "precio_unitario": "1250.00"
+    }
+  },
+  {
+    "model": "core.medicamento",
+    "pk": 3,
+    "fields": {
+      "nombre": "Omeprazol 20mg",
+      "laboratorio": 3,
+      "stock": 100,
+      "precio_unitario": "1890.00"
+    }
+  },
+  {
+    "model": "core.medicamento",
+    "pk": 4,
+    "fields": {
+      "nombre": "Losartán 50mg",
+      "laboratorio": 1,
+      "stock": 80,
+      "precio_unitario": "2100.00"
+    }
+  }
+]

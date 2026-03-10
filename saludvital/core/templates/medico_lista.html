@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}Médicos{% endblock %}
+{% block content %}
+<a href="{% url 'medico_create' %}">Nuevo médico</a>
+<form method="get" style="margin: .5rem 0; display:flex; gap:.5rem; align-items:center;">
+  <select name="especialidad">
+    <option value="">Especialidad (todas)</option>
+    {% for e in especialidades %}
+      <option value="{{ e.id }}" {% if f_especialidad == e.id|stringformat:'s' %}selected{% endif %}>{{ e.nombre }}</option>
+    {% endfor %}
+  </select>
+  <select name="activo">
+    <option value="">Estado (todos)</option>
+    <option value="true" {% if f_activo == 'true' %}selected{% endif %}>Activo</option>
+    <option value="false" {% if f_activo == 'false' %}selected{% endif %}>Inactivo</option>
+  </select>
+  <button type="submit">Filtrar</button>
+  <a href="?">Limpiar</a>
+  </form>
+<table>
+  <thead><tr><th>RUT</th><th>Nombre</th><th>Apellido</th><th>Especialidad</th><th>Acciones</th></tr></thead>
+  <tbody>
+    {% for m in object_list %}
+    <tr>
+      <td>{{ m.rut }}</td>
+      <td>{{ m.nombre }}</td>
+      <td>{{ m.apellido }}</td>
+      <td>{{ m.especialidad }}</td>
+      <td>
+        <a href="{% url 'medico_update' m.id %}">Editar</a>
+        <a href="{% url 'medico_delete' m.id %}">Borrar</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5">Sin registros</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% if is_paginated %}
+<div class="pagination">
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">« Anterior</a>
+  {% endif %}
+  <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Siguiente »</a>
+  {% endif %}
+  </div>
+{% endif %}
+{% endblock %}
+
+

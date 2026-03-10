@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "EVADOS/saludvital/core/static"
+		},
+		{
+			"path": "EVADOS/saludvital/core/templates"
+		},
+		{
+			"path": "EVADOS/saludvital/core/__pycache__"
+		},
+		{
+			"path": "EVADOS/saludvital/core/fixtures"
+		},
+		{
+			"path": "EVADOS/saludvital/core/migrations"
+		}
+	]
+}

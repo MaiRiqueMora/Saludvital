@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'core/styles.css' %}?v=1">
+  <link rel="icon" href="{% static 'core/favicon.ico' %}">
+  </head>
+<body>
+    <header>
+        Salud Vital 
+    </header>
+  <main>
+     <div class="Desarrollador">
+      <a class="btn" href="/swagger/">API Docs</a>
+      <a class="btn" href="/admin/">Admin</a>
+      <a class="btn" href="/api/">API Root</a>
+  </div>
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="msg {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <small>Maite Riquelme Morales- Sección: AP-173 - {{ 2025 }}</small>
+  </footer>
+</body>
+</html>
